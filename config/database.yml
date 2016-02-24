@@ -1,0 +1,18 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+
+development:
+  <<: *default
+  database: whosgoing_development
+
+test:
+  <<: *default
+  database: whosgoing_test
+
+production:
+  <<: *default
+  database: whosgoing_production
+  username: whosgoing
+  password: <%= ENV['WHOSGOING_DATABASE_PASSWORD'] %>

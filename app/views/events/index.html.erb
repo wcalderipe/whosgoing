@@ -1,0 +1,83 @@
+<section class="hero is-info is-left is-bold">
+  <div class="hero-header">
+    <header class="header">
+      <div class="container">
+        <div class="header-left">
+        </div>
+        <span id="header-toggle" class="header-toggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </span>
+        <div id="header-menu" class="header-right header-menu">
+          <span class="header-item">
+            <a href="<%= request.base_url %>">Home</a>
+          <span class="header-item">
+          </span>
+        </div>
+      </div>
+    </header>
+  </div>
+  <div class="hero-content">
+    <div class="container">
+      <p class="title">
+        <a href="https://facebook.com/events/<%= @event[:metadata][:id] %>" target="_blank"><%= @event[:metadata][:name] %></a>
+      </p>
+      <p class="subtitle">
+        guess who's going?
+      </p>
+    </div>
+  </div>
+</section>
+<section class="section">
+  <div class="container">
+    <div class="columns">
+      <div class="column">
+        <p class="control">
+          <input class="input is-large" type="text" id="filter" placeholder="type a name...">
+        </p>
+      </div>
+    </div>
+    <div class="columns">
+      <div class="column">
+        <h2 class="title">Attending (<%= @event[:metadata][:attending_count] %>)</h2>
+        <ul id="attending">
+          <% @event[:attending].each do |person| %>
+            <li class="person" data-person-name="<%= person['name'].downcase %>">
+              <a href="https://facebook.com/<%= person['id'] %>">
+                <img src="https://graph.facebook.com/v2.5/<%= person['id'] %>/picture" class="image is-48x48" alt="<%= person['name'] %>" />
+                <p><%= person['name'] %></p>
+              </a>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+      <div class="column">
+        <h2 class="title">Interested (<%= @event[:metadata][:interested_count] %>)</h2>
+        <ul id="interested">
+          <% @event[:interested].each do |person| %>
+            <li class="person" data-person-name="<%= person['name'].downcase %>">
+              <a href="https://facebook.com/<%= person['id'] %>">
+                <img src="https://graph.facebook.com/v2.5/<%= person['id'] %>/picture" class="image is-48x48" alt="<%= person['name'] %>" />
+                <p><%= person['name'] %></p>
+              </a>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+      <div class="column">
+        <h2 class="title">Declined (<%= @event[:metadata][:declined_count] %>)</h2>
+        <ul id="declined">
+          <% @event[:declined].each do |person| %>
+            <li class="person" data-person-name="<%= person['name'].downcase %>">
+              <a href="https://facebook.com/<%= person['id'] %>">
+                <img src="https://graph.facebook.com/v2.5/<%= person['id'] %>/picture" class="image is-48x48" alt="<%= person['name'] %>" />
+                <p><%= person['name'] %></p>
+              </a>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
