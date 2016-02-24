@@ -10,7 +10,7 @@ module Facebook
       @event_fb_id = fb_id
     end
 
-    def load
+    def request
       request_metadata
       request_attending
       request_interested
