@@ -44,7 +44,7 @@
         <ul id="attending">
           <% @event[:attending].each do |person| %>
             <li class="person" data-person-name="<%= person['name'].downcase %>">
-              <a href="https://facebook.com/<%= person['id'] %>">
+              <a href="https://facebook.com/<%= person['id'] %>" target="_blank">
                 <img src="https://graph.facebook.com/v2.5/<%= person['id'] %>/picture" class="image is-48x48" alt="<%= person['name'] %>" />
                 <p><%= person['name'] %></p>
               </a>
@@ -57,7 +57,7 @@
         <ul id="interested">
           <% @event[:interested].each do |person| %>
             <li class="person" data-person-name="<%= person['name'].downcase %>">
-              <a href="https://facebook.com/<%= person['id'] %>">
+              <a href="https://facebook.com/<%= person['id'] %>" target="_blank">
                 <img src="https://graph.facebook.com/v2.5/<%= person['id'] %>/picture" class="image is-48x48" alt="<%= person['name'] %>" />
                 <p><%= person['name'] %></p>
               </a>
@@ -70,7 +70,7 @@
         <ul id="declined">
           <% @event[:declined].each do |person| %>
             <li class="person" data-person-name="<%= person['name'].downcase %>">
-              <a href="https://facebook.com/<%= person['id'] %>">
+              <a href="https://facebook.com/<%= person['id'] %>" target="_blank">
                 <img src="https://graph.facebook.com/v2.5/<%= person['id'] %>/picture" class="image is-48x48" alt="<%= person['name'] %>" />
                 <p><%= person['name'] %></p>
               </a>
